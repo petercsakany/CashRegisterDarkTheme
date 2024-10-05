@@ -5,7 +5,7 @@ using System.Runtime.InteropServices.ComTypes;
 using MelonLoader;
 using CheckoutTheme; // The namespace of your mod class
 // ...
-[assembly: MelonInfo(typeof(Darkmode), "Checkout Theme", "1.2.0", "Morabis")]
+[assembly: MelonInfo(typeof(Darkmode), "Checkout Theme", "1.2.2", "Morabis")]
 [assembly: MelonGame("Nokta Games", "Supermarket Simulator")]
 
 // General Information about an assembly is controlled through the following
@@ -38,5 +38,5 @@ using CheckoutTheme; // The namespace of your mod class
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.2.0.0")]
-[assembly: AssemblyFileVersion("1.2.0.0")]
+[assembly: AssemblyVersion("1.2.2.0")]
+[assembly: AssemblyFileVersion("1.2.2.0")]

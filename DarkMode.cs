@@ -1,15 +1,9 @@
 ﻿using MelonLoader;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 using HarmonyLib;
-using MelonLoader.Utils;
 
 namespace CheckoutTheme
 {
@@ -41,7 +35,7 @@ namespace CheckoutTheme
 
         public override void OnInitializeMelon()
         {
-            themeCat = MelonPreferences.CreateCategory("Checkout Theme");
+            themeCat = MelonPreferences.CreateCategory("Checkout Theme 1_2_1");
             if (Directory.Exists("MLLoader") && Directory.Exists("BepInEx"))
             {
                 themeCat.SetFilePath("MLLoader/UserData/checkouttheme.cfg", autoload: false);
@@ -137,6 +131,31 @@ namespace CheckoutTheme
                             }
                         }
                     }
+                    foreach (Transform selfCheckout in checkoutManager.transform)
+                    {
+                        if(selfCheckout.name.StartsWith("Self Checkout"))
+                        {
+                            Transform paymentScreen = selfCheckout.Find("Payment Screen");
+                            if (paymentScreen != null)
+                            {
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/BG")?.gameObject, ColorFromHexString(paymentScreenBg.Value));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Title")?.gameObject, ColorFromHexString(paymentScreenTitleBg.Value));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Title/Checkout")?.gameObject, ColorFromHexString(paymentScreenTitleText.Value));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Title/Icon")?.gameObject, ColorFromHexString(paymentScreenTitleText.Value));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Headers/Product Name")?.gameObject, ColorFromHexString(paymentScreenHeaders.Value));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Headers/Unit")?.gameObject, ColorFromHexString(paymentScreenHeaders.Value));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Headers/Price")?.gameObject, ColorFromHexString(paymentScreenHeaders.Value));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Headers/Total")?.gameObject, ColorFromHexString(paymentScreenHeaders.Value));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Headers/Divider")?.gameObject, ColorFromHexString(paymentScreenHeaders.Value));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Items Viewport")?.gameObject, new Color(1f, 1f, 1f, 0f));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Total Panel/BG")?.gameObject, ColorFromHexString(paymentScreenTotalPanelBg.Value));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Total Panel/Total BG")?.gameObject, ColorFromHexString(paymentScreenTotalBg.Value));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Total Panel/Total BG/Total")?.gameObject, ColorFromHexString(paymentScreenTotalText.Value));
+                                SetColorToComponent(paymentScreen.Find("Screen Canvas/Total Panel/Total BG/Total Price Text")?.gameObject, ColorFromHexString(paymentScreenTotalText.Value));
+                            }
+                        }
+                    }
+
                 }
             }
         }
